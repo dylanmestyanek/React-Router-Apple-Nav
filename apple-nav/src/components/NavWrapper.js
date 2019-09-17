@@ -1,20 +1,24 @@
-import React from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, NavLink } from "react-router-dom";
 
 import Nav from "./Nav";
+import Page from "./Page";
 
-const NavWrapper = () => {
+const NavWrapper = ({ data }) => {
+    const [title, setTitle] = useState('');
+    const [products, setProducts] = useState([]);
+
     return (
-        <div>
-            <Nav title="Mac">Mac</Nav>
-            <Nav title="iPad">iPad</Nav>
-            <Nav title="iPhone">iPhone</Nav>
-            <Nav title="Watch">Watch</Nav>
-            <Nav title="TV">TV</Nav>
-            <Nav title="Music">Music</Nav>
-            <Nav title="Support">Support</Nav>
-            <Nav title="Search">Search</Nav>
-            <Nav title="Cart">Cart</Nav>
+        <div className="nav-container">
+            <div className="nav-link-container">
+            <NavLink to="/" className="apple-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Apple_logo_white.svg/768px-Apple_logo_white.svg.png" /></NavLink>
+                {
+                    data.map((item, idx) => <Nav setProducts={setProducts} setTitle={setTitle} title={item.title} />)
+                }
+            </div>
+
+            <Route exact path="/:title" render={(props) => <Page {...props} data={data} setProducts={setProducts} products={products}/>} />
+
 
         </div>
     )

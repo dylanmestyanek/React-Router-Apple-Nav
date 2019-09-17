@@ -1,33 +1,32 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-link-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-evenly;
+  align-content: flex-end;
+  background: rgba(0, 0, 0, .8);
+  height: 30px;
+  padding-top: 5px;
+}
+
+.nav-link-container a {
+  text-decoration: none;
   color: white;
+  font-size: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.apple-products {
+  display: flex;
+  justify-content: space-evenly;
+  background: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.apple-products a {
+  text-decoration: none;
+  color: black;
+}
+
+.apple-logo {
+}
+
+.apple-logo img {
+  width: 20px;
 }

@@ -1,11 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 
 const Nav = ({
-    title
+    title,
+    setTitle,
+    setProducts
 }) => {
     return (
-        <div>{title}</div>
+        <>
+            <NavLink to={`/${title}`} onClick={() => {
+                setTitle(title)
+                setProducts([])
+            }}>{title}</NavLink>
+        </>
     );
 };
 
