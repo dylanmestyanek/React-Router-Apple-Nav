@@ -9,8 +9,7 @@ const Nav = ({
     return (
         <>
             <NavLink to={`/${title}`} onClick={() => {
-                setTitle(title)
-                setProducts([])
+                setTitle(title);
             }}>{title}</NavLink>
         </>
     );

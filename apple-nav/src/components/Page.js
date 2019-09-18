@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"; 
 
 const Page = (props) => {
     const obj = props.data.find(item => item.title === props.match.params.title);
-    
-    if (obj.content) {
-        for (let product in obj.content){
-            props.products.push(<NavLink>{obj.content[product]}</NavLink>)
-        }
-    }
+    const [productList, setProductList] = useState(obj);
+
+    useEffect(() =>
+        setProductList(obj)
+    , [props.match.params.title]);
 
     return (
         <div className="apple-products">
-           {props.products}
+           {Object.values(productList.content).map(item => <NavLink>{item}</NavLink>)}
         </div>
     );
 };
